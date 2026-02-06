@@ -45,8 +45,6 @@ cp .env.example .env
 npm run dev
 ```
 
-> **Note:** The `/findRemixes` endpoint is served by Netlify Functions. For local development that hits the function, use `netlify dev` (after installing the Netlify CLI) so the redirect in `netlify.toml` is respected.
-
 ## Netlify Deployment
 
 - Ensure the environment variables are added to Netlify site settings.

@@ -38,7 +38,7 @@ export default function App() {
     setState((prev) => ({ ...prev, loading: true, error: '', results: [] }));
 
     try {
-      const response = await fetch('/findRemixes', {
+      const response = await fetch('/.netlify/functions/findRemixes', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -46,11 +46,11 @@ export default function App() {
         body: JSON.stringify({ query: state.query }),
       });
 
-      const data = await response.json().catch(() => ({}));
-
       if (!response.ok) {
-        throw new Error(data.error || 'Unable to find remixes right now.');
+        throw new Error('Unable to find remixes right now.');
       }
+
+      const data = await response.json();
       setState((prev) => ({
         ...prev,
         loading: false,
