@@ -26,7 +26,7 @@ const callGroq = async ({ apiKey, messages, temperature = 0.2 }) => {
       Authorization: `Bearer ${apiKey}`,
     },
     body: JSON.stringify({
-      model: 'llama-3.3-70b-versatile',
+      model: 'whisper-large-v3-turbo',
       messages,
       temperature,
     }),
