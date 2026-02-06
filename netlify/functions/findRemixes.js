@@ -1,5 +1,4 @@
-/* ===========================
-   CONSTANTS
+
 
 const GROQ_API_URL = 'https://api.groq.com/openai/v1/chat/completions';
 const YOUTUBE_SEARCH_URL = 'https://www.googleapis.com/youtube/v3/search';
@@ -9,9 +8,6 @@ const SPOTIFY_SEARCH_URL = 'https://api.spotify.com/v1/search';
 
 const JSON_HEADERS = { 'Content-Type': 'application/json' };
 
-/* ===========================
-   HELPERS
-
 const safeJsonParse = (value, fallback) => {
   try {
     return JSON.parse(value);
@@ -20,8 +16,7 @@ const safeJsonParse = (value, fallback) => {
   }
 };
 
-/* ===========================
-   GROQ
+
 
 const callGroq = async ({ apiKey, messages, temperature = 0.2 }) => {
   const response = await fetch(GROQ_API_URL, {
@@ -79,8 +74,6 @@ Return JSON exactly like:
   });
 };
 
-/* ===========================
-   QUERY BUILDER
 
 const buildQueries = ({ song, artist, genrePreference }) => {
   const base = song?.trim() || '';
@@ -96,8 +89,6 @@ const buildQueries = ({ song, artist, genrePreference }) => {
   ].filter(Boolean);
 };
 
-/* ===========================
-   YOUTUBE
 
 const searchYouTube = async ({ apiKey, queries }) => {
   const results = [];
@@ -151,8 +142,7 @@ const searchYouTube = async ({ apiKey, queries }) => {
   return results;
 };
 
-/* ===========================
-   SPOTIFY
+
 
 const getSpotifyToken = async ({ clientId, clientSecret }) => {
   const auth = Buffer.from(`${clientId}:${clientSecret}`).toString('base64');
@@ -210,8 +200,7 @@ const searchSpotify = async ({ token, queries }) => {
   return results;
 };
 
-/* ===========================
-   SCORING
+
 
 const computeScores = (items) => {
   const maxViews = Math.max(
@@ -231,8 +220,6 @@ const computeScores = (items) => {
   });
 };
 
-/* ===========================
-   HANDLER
 
 exports.handler = async (event) => {
   if (event.httpMethod !== 'POST') {
