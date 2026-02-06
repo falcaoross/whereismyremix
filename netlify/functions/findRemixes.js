@@ -26,7 +26,7 @@ const callGroq = async ({ apiKey, messages, temperature = 0.2 }) => {
       Authorization: `Bearer ${apiKey}`,
     },
     body: JSON.stringify({
-      model: 'whisper-large-v3-turbo',
+      model: 'openai/gpt-oss-120b',
       messages,
       temperature,
     }),
