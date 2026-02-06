@@ -38,7 +38,7 @@ export default function App() {
     setState((prev) => ({ ...prev, loading: true, error: '', results: [] }));
 
     try {
-      const response = await fetch('/findRemixes', {
+      const response = await fetch('/.netlify/functions/findRemixes', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
