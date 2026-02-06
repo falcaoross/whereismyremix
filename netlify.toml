@@ -1,0 +1,9 @@
+[build]
+  command = "npm run build"
+  functions = "netlify/functions"
+  publish = "dist"
+
+[[redirects]]
+  from = "/findRemixes"
+  to = "/.netlify/functions/findRemixes"
+  status = 200
